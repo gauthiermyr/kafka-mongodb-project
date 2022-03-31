@@ -13,6 +13,9 @@ async function main(){
         const data = await db.collection('position').find({}).toArray();
         console.log('All:', data, data.length);
 
+        //print all entries starting by oldest datas
+        const req1 = await db.collection('position').find({}).sort({timestamp:-1}).toArray();
+        console.log('All datas (sorted by timestamp in descending order):', req1, req1.length);
         //get last position + country
 
         //iss speed avg
